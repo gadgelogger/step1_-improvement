@@ -14,6 +14,202 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Post _$PostFromJson(Map<String, dynamic> json) {
+  return _Post.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Post {
+  String get login => throw _privateConstructorUsedError;
+  String get html_url => throw _privateConstructorUsedError;
+  String get avatar_url => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostCopyWith<$Res> {
+  factory $PostCopyWith(Post value, $Res Function(Post) then) =
+      _$PostCopyWithImpl<$Res, Post>;
+  @useResult
+  $Res call({String login, String html_url, String avatar_url, int id});
+}
+
+/// @nodoc
+class _$PostCopyWithImpl<$Res, $Val extends Post>
+    implements $PostCopyWith<$Res> {
+  _$PostCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? login = null,
+    Object? html_url = null,
+    Object? avatar_url = null,
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      login: null == login
+          ? _value.login
+          : login // ignore: cast_nullable_to_non_nullable
+              as String,
+      html_url: null == html_url
+          ? _value.html_url
+          : html_url // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatar_url: null == avatar_url
+          ? _value.avatar_url
+          : avatar_url // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
+  factory _$$_PostCopyWith(_$_Post value, $Res Function(_$_Post) then) =
+      __$$_PostCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String login, String html_url, String avatar_url, int id});
+}
+
+/// @nodoc
+class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
+    implements _$$_PostCopyWith<$Res> {
+  __$$_PostCopyWithImpl(_$_Post _value, $Res Function(_$_Post) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? login = null,
+    Object? html_url = null,
+    Object? avatar_url = null,
+    Object? id = null,
+  }) {
+    return _then(_$_Post(
+      login: null == login
+          ? _value.login
+          : login // ignore: cast_nullable_to_non_nullable
+              as String,
+      html_url: null == html_url
+          ? _value.html_url
+          : html_url // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatar_url: null == avatar_url
+          ? _value.avatar_url
+          : avatar_url // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Post with DiagnosticableTreeMixin implements _Post {
+  const _$_Post(
+      {required this.login,
+      required this.html_url,
+      required this.avatar_url,
+      required this.id});
+
+  factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
+
+  @override
+  final String login;
+  @override
+  final String html_url;
+  @override
+  final String avatar_url;
+  @override
+  final int id;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Post(login: $login, html_url: $html_url, avatar_url: $avatar_url, id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Post'))
+      ..add(DiagnosticsProperty('login', login))
+      ..add(DiagnosticsProperty('html_url', html_url))
+      ..add(DiagnosticsProperty('avatar_url', avatar_url))
+      ..add(DiagnosticsProperty('id', id));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Post &&
+            (identical(other.login, login) || other.login == login) &&
+            (identical(other.html_url, html_url) ||
+                other.html_url == html_url) &&
+            (identical(other.avatar_url, avatar_url) ||
+                other.avatar_url == avatar_url) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, login, html_url, avatar_url, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PostCopyWith<_$_Post> get copyWith =>
+      __$$_PostCopyWithImpl<_$_Post>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PostToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Post implements Post {
+  const factory _Post(
+      {required final String login,
+      required final String html_url,
+      required final String avatar_url,
+      required final int id}) = _$_Post;
+
+  factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
+
+  @override
+  String get login;
+  @override
+  String get html_url;
+  @override
+  String get avatar_url;
+  @override
+  int get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PostCopyWith<_$_Post> get copyWith => throw _privateConstructorUsedError;
+}
+
 /// @nodoc
 mixin _$PostState {
   int get since => throw _privateConstructorUsedError;

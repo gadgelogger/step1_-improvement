@@ -3,24 +3,17 @@ import 'package:flutter/foundation.dart';
 part 'post_state.freezed.dart';
 part 'post_state.g.dart';
 
-//todo:PostをFreezedで書き換える←JsonSerializableを用いておこなった
-//freeezedでもいけるよ！！！
-@JsonSerializable(explicitToJson: true)
-class Post {
-  final String login;
-  final String htmlUrl;
-  final String avatarUrl;
-  final int id;
-
-  Post({
-    required this.login,
-    required this.htmlUrl,
-    required this.avatarUrl,
-    required this.id,
-  });
+//todo:freeezedで書き直した（jsonなんとかよりもこっちの方がスッキリ）
+@freezed
+class Post with _$Post {
+  const factory Post({
+    required String login,
+    required String html_url,
+    required String avatar_url,
+    required int id,
+  }) = _Post;
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
-  Map<String, dynamic> toJson() => _$PostToJson(this);
 }
 
 @freezed

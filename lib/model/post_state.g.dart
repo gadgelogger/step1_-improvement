@@ -6,16 +6,16 @@ part of 'post_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Post _$PostFromJson(Map<String, dynamic> json) => Post(
+_$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
       login: json['login'] as String,
-      htmlUrl: json['htmlUrl'] as String,
-      avatarUrl: json['avatarUrl'] as String,
+      html_url: json['html_url'] as String,
+      avatar_url: json['avatar_url'] as String,
       id: json['id'] as int,
     );
 
-Map<String, dynamic> _$PostToJson(Post instance) => <String, dynamic>{
+Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'login': instance.login,
-      'htmlUrl': instance.htmlUrl,
-      'avatarUrl': instance.avatarUrl,
+      'html_url': instance.html_url,
+      'avatar_url': instance.avatar_url,
       'id': instance.id,
     };

@@ -63,18 +63,18 @@ void main() {
       // 結果の1つ目の要素のloginが'user1'であることを確認
       expect(result[0].login, equals('user1'));
       // 結果の1つ目の要素のurlが'https://github.com/user1'であることを確認
-      expect(result[0].htmlUrl, equals('https://github.com/user1'));
+      expect(result[0].html_url, equals('https://github.com/user1'));
       // 結果の1つ目の要素のavaterが'https://avatars.githubusercontent.com/u/1?v=4'であることを確認
-      expect(result[0].avatarUrl,
+      expect(result[0].avatar_url,
           equals('https://avatars.githubusercontent.com/u/1?v=4'));
       // 結果の1つ目の要素のidが'1'であることを確認
       expect(result[0].id, 1);
       // 結果の2つ目の要素のloginが'user2'であることを確認
       expect(result[1].login, equals('user2'));
       // 結果の2つ目の要素のurlが'https://github.com/user2'であることを確認
-      expect(result[1].htmlUrl, equals('https://github.com/user2'));
+      expect(result[1].html_url, equals('https://github.com/user2'));
       // 結果の2つ目の要素のavaterが'https://avatars.githubusercontent.com/u/2?v=4'であることを確認
-      expect(result[1].avatarUrl,
+      expect(result[1].avatar_url,
           equals('https://avatars.githubusercontent.com/u/2?v=4'));
       // 結果の2つ目の要素のidが'2'であることを確認
       expect(result[1].id, 2);

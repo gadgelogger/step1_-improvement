@@ -82,15 +82,15 @@ class _HomeState extends ConsumerState<Home> {
                           asyncTodos.posts?[index].login ?? '',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        subtitle: Text(asyncTodos.posts?[index].htmlUrl ?? ''),
+                        subtitle: Text(asyncTodos.posts?[index].html_url ?? ''),
                         leading: CircleAvatar(
                             backgroundImage: NetworkImage(
-                                asyncTodos.posts?[index].avatarUrl ?? '')),
+                                asyncTodos.posts?[index].avatar_url ?? '')),
                         trailing:
                             Text(asyncTodos.posts?[index].id.toString() ?? ''),
                         onTap: () {
                           context.go('/subpage',
-                              extra: asyncTodos.posts?[index].htmlUrl ?? '');
+                              extra: asyncTodos.posts?[index].html_url ?? '');
                         },
                       );
                     }),
