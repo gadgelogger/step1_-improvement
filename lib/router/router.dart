@@ -15,9 +15,8 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: 'subpage',
           builder: (BuildContext context, GoRouterState state) {
-            return SubPage(
-              state.extra as String,
-            );
+            final data = state.extra as ({String url, String login});
+            return SubPage(url: data.url, login: data.login);
           },
         ),
       ],

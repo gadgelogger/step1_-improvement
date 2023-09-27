@@ -30,7 +30,10 @@ class PostAsyncnotifierProvider extends _$PostAsyncnotifierProvider {
 
   Future<void> loadMorePost() async {
     final currentState = state.value; // 現在の状態を取得(20行目のやつ)
-    if (currentState == null || currentState.isLoadMoreError) {
+    final lastId = currentState?.posts?.lastOrNull?.id;
+    if (currentState == null ||
+        currentState.isLoadMoreError ||
+        lastId == null) {
       //currentStateがnullかisLoadMoreErrorがtrueの場合に実行
       print('Loading failed or already loading.');
       return;
@@ -45,8 +48,9 @@ class PostAsyncnotifierProvider extends _$PostAsyncnotifierProvider {
         isLoading: true, isLoadMoreDone: false, isLoadMoreError: false));
     final repositoryApiClient = RepositoryApiClient(Dio()); //APIクライアントをインスタンス化
 
-    final posts = await repositoryApiClient.fetchList(
-        currentState.since + 20); // 次のページの投稿を非同期に取得(20件ずつ取得したいので+20してる)
+    final posts = await repositoryApiClient.fetchList(lastId);
+
+    // 次のページの投稿を非同期に取得(20件ずつ取得したいので+20してる)
     //todo:sinceは違うぞ！！！（実装ミス）←最後にidを入れる
     // エラー時の処理(また新しい状態をセット)
     state = AsyncValue.data(

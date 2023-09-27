@@ -19,7 +19,7 @@ class _HomeState extends ConsumerState<Home> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Posts'),
+        title: const Text('Github Users'),
       ),
       body: asyncTodos.when(
         data: (asyncTodos) => Consumer(
@@ -54,44 +54,37 @@ class _HomeState extends ConsumerState<Home> {
                 },
                 child: ListView.builder(
                     padding: const EdgeInsets.symmetric(vertical: 20),
-                    itemCount: asyncTodos.posts!.length + 1,
+                    itemCount: asyncTodos.posts!.length,
                     itemBuilder: (ctx, index) {
-                      final isLastItem = index == asyncTodos.posts!.length;
+                      final data = asyncTodos.posts?[index]; //todo:定数化した
 
-                      if (isLastItem) {
-                        if (asyncTodos.isLoadMoreError) {
-                          return const Center(
-                            child: Text('Error'),
-                          );
-                        }
-
-                        if (asyncTodos.isLoadMoreDone) {
-                          return const Center(
-                            child: Text(
-                              'Done!',
+                      return Column(
+                        children: [
+                          ListTile(
+                            title: Text(
+                              data?.login ?? '',
                               style:
-                                  TextStyle(color: Colors.green, fontSize: 20),
+                                  const TextStyle(fontWeight: FontWeight.bold),
                             ),
-                          );
-                        }
-                        return const LinearProgressIndicator();
-                      }
-
-                      return ListTile(
-                        title: Text(
-                          asyncTodos.posts?[index].login ?? '',
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(asyncTodos.posts?[index].html_url ?? ''),
-                        leading: CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                asyncTodos.posts?[index].avatar_url ?? '')),
-                        trailing:
-                            Text(asyncTodos.posts?[index].id.toString() ?? ''),
-                        onTap: () {
-                          context.go('/subpage',
-                              extra: asyncTodos.posts?[index].html_url ?? '');
-                        },
+                            subtitle: Text(data?.html_url ?? ''),
+                            leading: CircleAvatar(
+                                backgroundImage:
+                                    NetworkImage(data?.avatar_url ?? '')),
+                            trailing: Text(data?.id.toString() ?? ''),
+                            onTap: () {
+                              context.push(
+                                '/subpage',
+                                extra: (
+                                  url: data?.html_url ?? '',
+                                  login: data?.login ?? ''
+                                ),
+                              );
+                            },
+                          ),
+                          if (index == asyncTodos.posts!.length - 1 &&
+                              asyncTodos.isLoading)
+                            const LinearProgressIndicator()
+                        ],
                       );
                     }),
               ),
