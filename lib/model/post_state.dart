@@ -8,14 +8,14 @@ part 'post_state.g.dart';
 @JsonSerializable(explicitToJson: true)
 class Post {
   final String login;
-  final String html_url;
-  final String avatar_url;
+  final String htmlUrl;
+  final String avatarUrl;
   final int id;
 
   Post({
     required this.login,
-    required this.html_url,
-    required this.avatar_url,
+    required this.htmlUrl,
+    required this.avatarUrl,
     required this.id,
   });
 

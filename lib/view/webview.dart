@@ -20,7 +20,7 @@ class _SubPageState extends State<SubPage> {
       body: Stack(
         children: [
           InAppWebView(
-            initialUrlRequest: URLRequest(url: Uri.parse(widget.text)),
+            initialUrlRequest: URLRequest(),
             onLoadStop: (controller, url) {
               setState(() {
                 _isLoading = false;
